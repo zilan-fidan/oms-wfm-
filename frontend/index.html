@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>OMS - WFM</title>
+
+    <link
+            rel="stylesheet"
+            href="style.css"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>
+        OMS - WFM Yönetim Sistemi
+    </h1>
+
+    <h2>
+        Yeni Kesinti Ekle / Güncelle
+    </h2>
+
+    <!-- Başarı / hata mesajı -->
+
+    <div id="message"></div>
+
+    <!-- Form -->
+
+    <form id="outageForm">
+        <input
+                type="datetime-local"
+                id="started_at"
+                required
+        >
+
+        <input
+                type="text"
+                id="description"
+                placeholder="Açıklama"
+        >
+
+        <select
+                id="component_id"
+                required
+        >
+            <option value="">
+                Şebeke unsuru seç
+            </option>
+
+        </select>
+        <select
+                id="type"
+                required
+        >
+            <option value="">
+                Kesinti tipi seç
+            </option>
+
+            <option value="planned">
+                Planned
+            </option>
+
+            <option value="unplanned">
+                Unplanned
+            </option>
+        </select>
+
+        <input
+                type="text"
+                id="address_description"
+                placeholder="Adres"
+        >
+        <select id="cause_id">
+
+            <option value="">
+                Kesinti sebebi seç
+            </option>
+
+        </select>
+        <button
+                type="submit"
+                id="submitButton"
+        >
+            Kesinti Ekle
+        </button>
+    </form>
+
+    <h2>
+        Kesintiler
+    </h2>
+
+    <table>
+
+        <thead>
+
+        <tr>
+            <th>ID</th>
+
+            <th>
+                Başlangıç
+            </th>
+
+            <th>
+                Açıklama
+            </th>
+
+            <th>
+                Tip
+            </th>
+
+            <th>
+                Şebeke Unsuru
+            </th>
+
+            <th>
+                Sebep
+            </th>
+
+            <th>
+                Adres
+            </th>
+
+            <th>
+                İşlem
+            </th>
+        </tr>
+        </thead>
+        <tbody id="outageTableBody">
+        </tbody>
+    </table>
+</div>
+<script
+        src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
+</script>
+<script src="app.js"></script>
+</body>
+</html>
